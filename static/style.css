@@ -1,0 +1,59 @@
+:root {
+	--gimw: minmax(160px, 2fr);
+	--pd: 0.8rem;
+	--bs: 1px;
+	--br: 0px;
+	--gigap: var(--pd);
+	--c1: #fff;
+	--c2: #f5f5f5;
+	--c3: #ccc;
+	--c4: #333;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+	--c1: #000;
+	--c2: #222;
+	--c3: #333;
+	--c4: #aaa;
+}
+}
+* { box-sizing: border-box; font-family: Inter, sans-serif; line-height: 1.6 }
+html, body { padding: 0; margin: 0; height: 100%; color: var(--c4); background: var(--c1) }
+body { max-width: 60rem; padding: var(--pd); margin: 0 auto; font-size: 14px; font-weight: 400 }
+.grid {
+	display: grid;
+	margin-top: 1rem;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: repeat(auto-fit, var(--gimw));
+	max-width: 100%;
+	overflow: hidden;
+	gap: var(--gigap);
+}
+@keyframes slide-up {
+        0% {
+                translate: 0 1vh;
+                opacity: 0;
+		visibility: hidden;
+        }
+        100% {
+                translate: 0 0;
+                opacity: 1;
+		visibility: visible;
+        }
+}
+.grid > div { animation: 0.5s; animation-name: slide-up; animation-iteration-count: 1; animation-direction: alternate; animation-timing-function: ease-out }
+.grid > div > a { line-height: 0; margin: 0; padding: 0; display: block }
+.grid > div > a > img { max-width: 100%; }
+form { display: flex; gap: var(--gigap) }
+input[type="text"] { width: 100%; padding: var(--pd); outline: 0; border: var(--bs) solid var(--c3); border-radius: var(--br); color: var(--c4); background: transparent }
+button { padding: var(--pd); background: none; outline: 0; border: var(--bs) solid var(--c3); border-radius: var(--br); cursor: pointer; background: transparent; color: var(--c4) }
+h1 { font-size: 1rem; font-weight: 500; line-height: 1; margin: var(--pd) 0 }
+.error, .info { display: block; padding: var(--pd); margin: var(--pd) 0; font-family: monospace; font-size: 12px; border-radius: var(--br) }
+.error { color: crimson; background: #ffe4ee; border: var(--bs) solid crimson }
+.info { background: var(--c2); border: var(--bs) solid var(--c3) }
+details { margin: var(--pd) 0; border: var(--bs) solid var(--c3); border-radius: var(--br); padding: var(--pd) }
+p { margin-block-end: var(--pd); margin-block-start: var(--pd) }
+details p { padding: 0 var(--pd) }
+a, a:visited { color: var(--c4) }
+a:hover, a:active, a:focus { text-decoration: none }

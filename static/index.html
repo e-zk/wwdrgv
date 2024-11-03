@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="stylesheet" href="/style.css">
+<script src="/htmx.min.js"></script>
+</head>
+<body>
+<h1>wwd gallery viewer ~</h1>
+<details>
+<summary>about</summary>
+<p>viewer for womens wear daily runway galleries.<br>
+paste a <a href="https://wwd.com/fashion-news/shows-reviews/gallery/keisuke-yoshida-rtw-fall-1235588124/">gallery url</a> in the box, and click 'view'.<br>
+a grid will be populated with all the runway images.<br>
+click to open full size image in new tab.
+</p>
+</details>
+<form hx-post="/loadwwd" hx-target="#replaceMe" hx-swap="innerHTML">
+<input type="text" name="wwdurl">
+<button type="submit">view</button>
+</form>
+<div id="replaceMe"></div>
+</body>
+</html>
