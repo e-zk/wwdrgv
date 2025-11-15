@@ -37,7 +37,7 @@ func getImages(doc *goquery.Document) (urls []Image, err error) {
 		imgurl.RawQuery = ""
 		surl := imgurl.String()
 		// ignore non-jpg (.gif, etc)
-		if !strings.HasSuffix(surl, "jpg") {
+		if !(strings.HasSuffix(surl, "jpg") || strings.HasSuffix(surl, "jpeg")) {
 			return
 		}
 
